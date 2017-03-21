@@ -1,0 +1,24 @@
+---
+name: filebeat
+templates:
+  bin/filebeat_ctl: bin/filebeat_ctl
+  bin/monit_debugger: bin/monit_debugger
+  config/filebeat.yml.erb: config/filebeat.yml
+  data/properties.sh.erb: data/properties.sh
+  helpers/ctl_setup.sh: helpers/ctl_setup.sh
+  helpers/ctl_utils.sh: helpers/ctl_utils.sh
+
+
+packages:
+  - filebeat
+
+properties:
+  filebeat.configuration:
+    description: filebeat configuration in yaml format
+    default: |
+      filebeat.prospectors:
+      - input_type: log
+        paths:
+          - /var/vcap/sys/log/*/*.log
+      output.logstash:
+        hosts: ["10.244.0.25:5044"]

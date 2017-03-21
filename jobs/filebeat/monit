@@ -1,0 +1,5 @@
+check process filebeat
+  with pidfile /var/vcap/sys/run/filebeat/filebeat.pid
+  start program "/var/vcap/jobs/filebeat/bin/monit_debugger filebeat_ctl '/var/vcap/jobs/filebeat/bin/filebeat_ctl start'" with timeout 120 seconds
+  stop program "/var/vcap/jobs/filebeat/bin/monit_debugger filebeat_ctl '/var/vcap/jobs/filebeat/bin/filebeat_ctl stop'"
+  group vcap

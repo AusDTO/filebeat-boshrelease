@@ -1,0 +1,26 @@
+---
+name: filebeat
+director_uuid: 93c01d2d-a2a5-49d8-8d02-389fd223a9cf
+
+releases:
+- name: filebeat
+  version: latest
+
+instance_groups:
+- name: filebeat
+  instances: 1
+  resource_pool: default
+  networks:
+  - name: default
+    static_ips:
+    - 10.244.0.30
+  azs: [z1]
+  jobs:
+  - name: filebeat
+    release: filebeat
+
+update:
+  canaries: 1
+  max_in_flight: 1
+  canary_watch_time: 1000-600000
+  update_watch_time: 1000-600000
