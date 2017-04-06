@@ -13,6 +13,9 @@ packages:
   - filebeat
 
 properties:
+  filebeat.environment:
+    description:
+    default: dev
   filebeat.configuration:
     description: filebeat configuration in yaml format
     default: |

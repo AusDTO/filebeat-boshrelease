@@ -9,4 +9,9 @@
 
 #=========================== Filebeat prospectors =============================
 
+name: <%= name %>-<%= index %>
+
+fields:
+  env: <%= p("filebeat.environment") %>
+
 <%= p("filebeat.configuration") %>

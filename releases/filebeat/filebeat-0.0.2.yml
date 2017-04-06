@@ -1,0 +1,20 @@
+---
+packages:
+- name: filebeat
+  version: b40b69d412a0d138962db0564b1a08214465b2c5
+  fingerprint: b40b69d412a0d138962db0564b1a08214465b2c5
+  sha1: e4f8d6d9d692806bf42ef741f85e8ace52290422
+  dependencies: []
+jobs:
+- name: filebeat
+  version: bf3a764770e9a30db59abb084194ef14bc8d7287
+  fingerprint: bf3a764770e9a30db59abb084194ef14bc8d7287
+  sha1: 694afd0ffe99973cf8bd449239b31a480ce9fb61
+license:
+  version: 37cb05ddf3167b3a7eeb030b21b27a71622c65cd
+  fingerprint: 37cb05ddf3167b3a7eeb030b21b27a71622c65cd
+  sha1: 50526d2486d2a78cb51993ca704376af4a321a03
+commit_hash: acda710b
+uncommitted_changes: true
+name: filebeat
+version: 0.0.2
