@@ -1,7 +1,8 @@
----
 builds:
-  52f44fb0-8bd2-4958-bccc-33a2193afd4e:
-    version: 0.0.1
   4f9db8cb-8c22-4569-a984-7b877376ca99:
     version: 0.0.2
-format-version: '2'
+  52f44fb0-8bd2-4958-bccc-33a2193afd4e:
+    version: 0.0.1
+  d53ba348-3408-4445-71bb-6114db0ec798:
+    version: 0.0.3
+format-version: "2"
