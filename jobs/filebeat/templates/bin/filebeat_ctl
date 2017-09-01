@@ -19,7 +19,9 @@ case $1 in
 
     # Sometimes jobs create log dirs and files that the vcap user can't access
     # so we need to ensure we have read access
-    chmod -R ugo+r /var/vcap/sys/log/*
+    chown -R :vcap /var/vcap/sys/log/*
+    chmod -R g+r /var/vcap/sys/log/*
+    find /var/vcap/sys/log -type d -exec chmod g+x {} \;
 
     chpst -u vcap:vcap /var/vcap/packages/filebeat/bin/filebeat \
         -c /var/vcap/jobs/filebeat/config/filebeat.yml \
