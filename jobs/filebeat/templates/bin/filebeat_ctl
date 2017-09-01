@@ -17,12 +17,16 @@ case $1 in
     echo $$ > $PIDFILE
     chown vcap:vcap $PIDFILE
 
+    # Sometimes jobs create log dirs and files that the vcap user can't access
+    # so we need to ensure we have read access
+    chmod -R ugo+r /var/vcap/sys/log/*
+
     chpst -u vcap:vcap /var/vcap/packages/filebeat/bin/filebeat \
         -c /var/vcap/jobs/filebeat/config/filebeat.yml \
         -path.data $STORE_DIR \
         -path.logs $LOG_DIR \
          >>$LOG_DIR/$JOB_NAME.stdout.log \
-         2>>$LOG_DIR/$JOB_NAME.stderr.log 
+         2>>$LOG_DIR/$JOB_NAME.stderr.log
 
     ;;
 
